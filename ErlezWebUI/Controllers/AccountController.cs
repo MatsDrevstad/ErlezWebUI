@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ErlezWebUI.Models;
+using System.Collections.Generic;
+using System.Net;
 
 namespace ErlezWebUI.Controllers
 {
@@ -37,6 +39,53 @@ namespace ErlezWebUI.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        //
+        // GET: /Account/Link
+        public ActionResult Link()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var user = db.Users.Where(c => c.CompanyId != 99).ToList();
+            var linkCompanyViewModel = new List<LinkCompanyViewModel>();
+            foreach (var item in user)
+            {
+                linkCompanyViewModel.Add(new LinkCompanyViewModel
+                {
+                    Id = item.Id,
+                    Email = item.Email,
+                    CompanyName = db.Companies.Find(item.CompanyId).CompanyName,
+                    RegisterCompanyName = item.RegisterCompanyName,
+                });
+            }
+            return View(linkCompanyViewModel);
+        }
+
+        // GET: Account/EditLink/5
+        public ActionResult EditLink(string id = "")
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.Users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var linkCompanyViewModel = new LinkCompanyViewModel()
+            {
+                Id = user.Id,
+                Email = user.Email,
+                RegisterCompanyName = user.RegisterCompanyName,
+                CompanyName = user.CompanyName,
+                Companies = db.Companies.ToSelectListItems(user.CompanyId),
+                SelectedValue = user.CompanyId
+            };
+
+            return View(linkCompanyViewModel);
         }
 
         //
@@ -154,7 +203,7 @@ namespace ErlezWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { RegisterCompanyName = model.RegisterCompanyName, UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -65,6 +65,10 @@ namespace ErlezWebUI.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Company (Register)")]
+        public string RegisterCompanyName { get; set; }
+        
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +83,26 @@ namespace ErlezWebUI.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class LinkCompanyViewModel
+    {
+        [Key]
+        public string Id { get; set; }
+
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Display(Name = "Company (Register)")]
+        public string RegisterCompanyName { get; set; }
+
+        [Display(Name = "Company (EDIS defined)")]
+        public string CompanyName { get; set; }
+
+        [Display(Name = "Company")]
+        public IEnumerable<System.Web.Mvc.SelectListItem> Companies { get; set; }
+
+        public int SelectedValue { get; set; }
     }
 
     public class ResetPasswordViewModel
