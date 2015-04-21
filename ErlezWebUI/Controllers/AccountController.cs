@@ -54,15 +54,32 @@ namespace ErlezWebUI.Controllers
                 {
                     Id = item.Id,
                     Email = item.Email,
-                    CompanyName = db.Companies.Find(item.CompanyId).CompanyName,
                     RegisterCompanyName = item.RegisterCompanyName,
+                    CompanyName = db.Companies.ConvertNull(item.CompanyId, "Has not been linked"),
                 });
             }
             return View(linkCompanyViewModel);
         }
 
+        // POST: Account/EditLink/5
+        [HttpPost]
+        public ActionResult EditLink(LinkCompanyViewModel vm)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.Find(vm.Id);
+                user.CompanyId = vm.SelectedValue;
+                user.CompanyName = db.Companies.Find(vm.SelectedValue).CompanyName;
+                db.SaveChanges();
+                return RedirectToAction("Link");
+            }
+            return View(vm);
+        }
+
         // GET: Account/EditLink/5
-        public ActionResult EditLink(string id = "")
+        public ActionResult EditLink(string id = "badrequest")
         {
             ApplicationDbContext db = new ApplicationDbContext();
             if (id == null)

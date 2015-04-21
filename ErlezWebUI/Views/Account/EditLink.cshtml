@@ -1,0 +1,51 @@
+﻿@model ErlezWebUI.Models.LinkCompanyViewModel
+
+@{
+    ViewBag.Title = "EditLink";
+}
+
+<h2>EditLink</h2>
+
+<div class="row">
+    @using (Html.BeginForm(new { htmlAttributes = new { @class = "form-horizontal" } }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h4>Link user to Company</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RegisterCompanyName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RegisterCompanyName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.RegisterCompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Companies, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedValue, Model.Companies, "---Select Company---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RegisterCompanyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Link")
+</div>
