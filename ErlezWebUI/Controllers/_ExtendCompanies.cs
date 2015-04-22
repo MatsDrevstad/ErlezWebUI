@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace ErlezWebUI.Controllers
 {
-    public static class _ExtendCompanies
+    public static class _ExtendCompanyB2s
     {
-        public static IEnumerable<SelectListItem> ToSelectListItems(this IEnumerable<Company> companies, int selectedId)
+        public static IEnumerable<SelectListItem> ToSelectListItems(this IEnumerable<CompanyB2> companyB2s, int selectedId)
         {
-            return companies.OrderBy(c => c.CompanyName)
+            return companyB2s.OrderBy(c => c.CompanyName)
                 .Select(company => new SelectListItem
                 {
                     Selected = (company.Id == selectedId),
@@ -20,11 +20,11 @@ namespace ErlezWebUI.Controllers
                 });
         }
 
-        public static string ConvertNull(this IEnumerable<Company> companies, int id, string result = "N/A")
+        public static string ConvertNull(this IEnumerable<CompanyB2> CompanyB2s, int id, string result = "N/A")
         {
             try
             {
-                result = companies.First(c => c.Id == id).CompanyName;
+                result = CompanyB2s.First(c => c.Id == id).CompanyName;
             }
             catch (Exception) { }
 

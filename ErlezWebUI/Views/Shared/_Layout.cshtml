@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Systemutveckling Azure Examensarbete</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("ErlezWebUI", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,11 +34,52 @@
             </div>
         </div>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Alc", "Index", "Alcs")</li>
+                    <li>@Html.ActionLink("Bet", "Index", "Bets")</li>
+                    <li>@Html.ActionLink("Company", "Index", "Companies")</li>
+                    <li>@Html.ActionLink("Enclosure", "Index", "Enclosures")</li>
+                    <li>@Html.ActionLink("Head", "Index", "Heads")</li>
+                    <li>@Html.ActionLink("HeadRef", "Index", "HeadRefs")</li>
+                    <li>@Html.ActionLink("Line", "Index", "Lines")</li>
+                    <li>@Html.ActionLink("LineAlc", "Index", "LineAlcs")</li>
+                    <li>@Html.ActionLink("LinePri", "Index", "LinePris")</li>
+                    <li>@Html.ActionLink("LineRef", "Index", "LineRefs")</li>
+                    <li>@Html.ActionLink("LineTax", "Index", "LineTaxes")</li>
+                    <li>@Html.ActionLink("Sum", "Index", "Sums")</li>
+                    <li>@Html.ActionLink("SumTax", "Index", "SumTaxes")</li>
+                    <li>@Html.ActionLink("Tdt", "Index", "Tdts")</li>
+                    <li>@Html.ActionLink("Tod", "Index", "Tods")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Company (SE)", "Index", "CompanySellers")</li>
+                    <li>@Html.ActionLink("Company (BY)", "Index", "CompanyBuyers")</li>
+                    <li>@Html.ActionLink("Article", "Index", "Articles")</li>
+                    <li>@Html.ActionLink("Order", "Index", "Orders")</li>
+                    <li>@Html.ActionLink("Invoice", "Index", "Invoices")</li>
+                    <li><a href="/ResetDb/"><img class="revertImage" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Systemutveckling Azure Examensarbete</p>
         </footer>
     </div>
 

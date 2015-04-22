@@ -55,7 +55,7 @@ namespace ErlezWebUI.Controllers
                     Id = item.Id,
                     Email = item.Email,
                     RegisterCompanyName = item.RegisterCompanyName,
-                    CompanyName = db.Companies.ConvertNull(item.CompanyId, "Has not been linked"),
+                    CompanyName = db.CompanyB2s.ConvertNull(item.CompanyId, "Has not been linked"),
                 });
             }
             return View(linkCompanyViewModel);
@@ -71,7 +71,7 @@ namespace ErlezWebUI.Controllers
             {
                 var user = db.Users.Find(vm.Id);
                 user.CompanyId = vm.SelectedValue;
-                user.CompanyName = db.Companies.Find(vm.SelectedValue).CompanyName;
+                user.CompanyName = db.CompanyB2s.Find(vm.SelectedValue).CompanyName;
                 db.SaveChanges();
                 return RedirectToAction("Link");
             }
@@ -98,7 +98,7 @@ namespace ErlezWebUI.Controllers
                 Email = user.Email,
                 RegisterCompanyName = user.RegisterCompanyName,
                 CompanyName = user.CompanyName,
-                Companies = db.Companies.ToSelectListItems(user.CompanyId),
+                Companies = db.CompanyB2s.ToSelectListItems(user.CompanyId),
                 SelectedValue = user.CompanyId
             };
 

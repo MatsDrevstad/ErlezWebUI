@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ErlezWebUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,117 +7,110 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ErlezWebUI.Models;
 
-namespace ErlezWebUI.Controllers
+namespace EdiInvoice.Controllers
 {
-    public class CompanyController : Controller
+    public class CompanyBuyersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Company
+        // GET: CompanyBuyers
         public ActionResult Index()
         {
-            var company = db.CompanyB2s.ToList();
-            var companyViewModel = new List<CompanyViewModel>();
-            foreach (var item in company)
-            {
-                companyViewModel.Add(new CompanyViewModel { Id = item.Id, CompanyName = item.CompanyName });
-            }
-            return View(companyViewModel);
+            return View(db.CompanyBuyers.ToList());
         }
 
-        // GET: Company/Details/5
+        // GET: CompanyBuyers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            CompanyBuyer companyBuyer = db.CompanyBuyers.Find(id);
+            if (companyBuyer == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(companyBuyer);
         }
 
-        // GET: Company/Create
+        // GET: CompanyBuyers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Company/Create
+        // POST: CompanyBuyers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CompanyName")] CompanyB2 company)
+        public ActionResult Create([Bind(Include = "Id,Name,OrgNo,City")] CompanyBuyer companyBuyer)
         {
             if (ModelState.IsValid)
             {
-                db.CompanyB2s.Add(company);
+                db.CompanyBuyers.Add(companyBuyer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            return View(companyBuyer);
         }
 
-        // GET: Company/Edit/5
+        // GET: CompanyBuyers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            CompanyBuyer companyBuyer = db.CompanyBuyers.Find(id);
+            if (companyBuyer == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(companyBuyer);
         }
 
-        // POST: Company/Edit/5
+        // POST: CompanyBuyers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CompanyName")] Company company)
+        public ActionResult Edit([Bind(Include = "Id,Name,OrgNo,City")] CompanyBuyer companyBuyer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(company).State = EntityState.Modified;
+                db.Entry(companyBuyer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            return View(companyBuyer);
         }
 
-        // GET: Company/Delete/5
+        // GET: CompanyBuyers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            CompanyBuyer companyBuyer = db.CompanyBuyers.Find(id);
+            if (companyBuyer == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(companyBuyer);
         }
 
-        // POST: Company/Delete/5
+        // POST: CompanyBuyers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            db.CompanyB2s.Remove(company);
+            CompanyBuyer companyBuyer = db.CompanyBuyers.Find(id);
+            db.CompanyBuyers.Remove(companyBuyer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

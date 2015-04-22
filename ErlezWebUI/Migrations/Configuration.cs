@@ -22,14 +22,14 @@ namespace ErlezWebUI.Migrations
 
         private static void SeedUsers(ErlezWebUI.Models.ApplicationDbContext context)
         {
-            context.Companies.AddOrUpdate(
+            context.CompanyB2s.AddOrUpdate(
                 c => c.CompanyName,
-                new Company { CompanyName = "Edi Solutions" },
-                new Company { CompanyName = "Volvo Personbilar" },
-                new Company { CompanyName = "Volvo Lastvagnar" },
-                new Company { CompanyName = "Ica" },
-                new Company { CompanyName = "Willys" },
-                new Company { CompanyName = "Netto" }
+                new CompanyB2 { CompanyName = "Edi Solutions" },
+                new CompanyB2 { CompanyName = "Volvo Personbilar" },
+                new CompanyB2 { CompanyName = "Volvo Lastvagnar" },
+                new CompanyB2 { CompanyName = "Ica" },
+                new CompanyB2 { CompanyName = "Willys" },
+                new CompanyB2 { CompanyName = "Netto" }
                 );
 
             if (!context.Roles.Any(r => r.Name == "CanEditUser"))
