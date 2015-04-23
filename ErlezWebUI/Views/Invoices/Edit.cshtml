@@ -1,0 +1,147 @@
+﻿@model ErlezWebUI.Models.InvoiceEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Invoice</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Invoice.Id)
+        @Html.HiddenFor(model => model.Invoice.TotalNet)
+        @Html.HiddenFor(model => model.Invoice.TotalTax)
+        @Html.HiddenFor(model => model.Invoice.TotalSum)
+        @Html.HiddenFor(model => model.Invoice.InvoiceNo)
+        @Html.HiddenFor(model => model.Invoice.SellerOrgNo)
+        @Html.HiddenFor(model => model.Invoice.BuyerOrgNo)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Invoice.InvoiceNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Invoice.InvoiceNo, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+            </div>
+
+            @Html.LabelFor(model => model.Invoice.InvoiceDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Invoice.InvoiceDate, new { htmlAttributes = new { @Value = Convert.ToDateTime(Model.Invoice.InvoiceDate).ToString("yyyy-MM-dd"), @class = "form-control" } })
+            </div>
+
+            @Html.LabelFor(model => model.Invoice.DueDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Invoice.DueDate, new { htmlAttributes = new { @Value = Convert.ToDateTime(Model.Invoice.DueDate).ToString("yyyy-MM-dd"), @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Invoice.DueDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Invoice.SellerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.SellerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Invoice.SellerName, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Invoice.BuyerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.BuyerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Invoice.BuyerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Invoice.SellerOrgNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.SellerOrgNo, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Invoice.SellerOrgNo, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Invoice.BuyerOrgNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.BuyerOrgNo, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.Invoice.BuyerOrgNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Invoice.SellerCity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.SellerCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Invoice.SellerCity, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Invoice.BuyerCity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Invoice.BuyerCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Invoice.BuyerCity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div>
+            <table class="table table-hover">
+                <tr>
+                    <th>Item</th>
+                    <th>ArticleName</th>
+                    <th>UnitPrice</th>
+                    <th>Amount</th>
+                </tr>
+
+                @{
+                    int counter = 0;
+                }
+    
+                @foreach (var item in Model.Orders)
+                {
+                    counter++;
+                    <tr>
+                        <td>@counter</td>
+                        <td>@item.ArticleName </td>
+                        <td>@item.UnitPrice </td>
+                        <td>@item.Amount </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div>
+            <table class="table table-hover">
+                <tr>
+                    <th>TotalNet</th>
+                    <th>TotalTax</th>
+                    <th>TotalSum</th>
+                    <th>RoundingOff</th>
+                    <th>TotalSumRounded</th>
+                </tr>
+                <tr>
+                    <td>@Model.TotalNet</td>
+                    <td>@Model.TotalTax </td>
+                    <td>@Model.TotalSum </td>
+                    <td>@Model.RoundingOff </td>
+                    <td>@Model.TotalSumRounded </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

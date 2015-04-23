@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Tdt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tdts</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TdtMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TdtDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TdtCarrierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TdtMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TdtDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TdtCarrierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

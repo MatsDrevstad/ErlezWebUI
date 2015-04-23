@@ -1,0 +1,74 @@
+﻿@model ErlezWebUI.Models.LinePri
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LinePri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceQualifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceQualifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceTypeQualifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceTypeQualifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinePri1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinePri1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinePriBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinePriBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line.LineNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

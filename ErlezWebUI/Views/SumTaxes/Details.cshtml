@@ -1,0 +1,74 @@
+﻿@model ErlezWebUI.Models.SumTax
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SumTax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SumTaxType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumTaxType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SumTaxCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumTaxCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SumTaxRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumTaxRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SumTaxableAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumTaxableAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SumTaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SumTaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxCurrencyTaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxCurrencyTaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

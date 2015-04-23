@@ -1,0 +1,98 @@
+﻿@model ErlezWebUI.Models.LineAlc
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LineAlc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlcType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlcType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Percentage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line.LineNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

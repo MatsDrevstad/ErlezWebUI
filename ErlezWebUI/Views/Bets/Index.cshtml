@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Bet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bets</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvCurrency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCurrency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCurrencyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCurrencyRateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExemptFromTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PenaltySurchargePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentInstruction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvCurrency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxCurrency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxCurrencyRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxCurrencyRateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExemptFromTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PenaltySurchargePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentInstruction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.PostId })
+        </td>
+    </tr>
+}
+
+</table>

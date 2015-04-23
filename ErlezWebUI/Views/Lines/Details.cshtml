@@ -1,0 +1,218 @@
+﻿@model ErlezWebUI.Models.Line
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Line</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LineCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GtinNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GtinNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerPartNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SellerPartNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerPartNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerPartNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufPartNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufPartNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityInvoiced)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityInvoiced)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityInvoicedUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityInvoicedUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityDelivered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityDelivered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityDeliveredUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityDeliveredUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityDespatched)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityDespatched)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityDespatchedUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityDespatchedUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityReceived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityReceived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuantityReceivedUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuantityReceivedUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditReason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Revision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Revision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstDelDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstDelDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastDelDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastDelDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LineId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,58 @@
+﻿@model ErlezWebUI.Models.LineRef
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LineRef</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LineRefQual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineRefQual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineRef1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineRef1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineRefLin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineRefLin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineRefDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineRefDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line.LineNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

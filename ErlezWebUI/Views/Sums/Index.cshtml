@@ -1,0 +1,124 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Sum>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sums</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalLines)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmountTaxCur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxableAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxableAmountTaxCur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxableAmountExclExemption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxableAmountExclExemptionTaxCur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxAmountTaxCur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlcAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdjustmentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NonTaxableAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExemptionAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalLines)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmountTaxCur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxableAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxableAmountTaxCur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxableAmountExclExemption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxableAmountExclExemptionTaxCur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxAmountTaxCur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlcAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdjustmentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NonTaxableAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExemptionAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.PostId })
+        </td>
+    </tr>
+}
+
+</table>

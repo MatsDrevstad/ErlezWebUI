@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ErlezWebUI.Models.LineRef>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LineRef</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LineRefQual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineRef1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineRefLin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineRefDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineRefQual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineRef1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineRefLin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineRefDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Line.LineNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

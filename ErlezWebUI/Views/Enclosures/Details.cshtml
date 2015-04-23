@@ -1,0 +1,66 @@
+﻿@model ErlezWebUI.Models.Enclosure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Enclosure</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileCreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileCreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnclosedDataFormat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnclosedDataFormat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnclosedData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnclosedData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ErlezWebUI.Models.LinePri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LinePris</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceQualifier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceTypeQualifier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinePri1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinePriBase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceQualifier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceTypeQualifier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinePri1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinePriBase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Line.LineNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>

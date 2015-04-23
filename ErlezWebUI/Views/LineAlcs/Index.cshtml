@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ErlezWebUI.Models.LineAlc>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LineAlcs</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AlcType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlcType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Line.LineNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

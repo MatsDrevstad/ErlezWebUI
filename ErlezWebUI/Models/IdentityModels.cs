@@ -41,8 +41,18 @@ namespace ErlezWebUI.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //code first migrations: decimal precision and scale
+            modelBuilder.Entity<Article>().Property(a => a.UnitPrice).HasPrecision(15, 4);
+            modelBuilder.Entity<Invoice>().Property(i => i.TotalNet).HasPrecision(15, 4);
+            modelBuilder.Entity<Invoice>().Property(i => i.TotalSum).HasPrecision(15, 4);
+            modelBuilder.Entity<Invoice>().Property(i => i.TotalTax).HasPrecision(15, 4);
+
             base.OnModelCreating(modelBuilder);
 
+            //kör pluralize på users-tabellerna
+            base.OnModelCreating(modelBuilder);
+
+            //ta bort på övriga
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
@@ -50,25 +60,25 @@ namespace ErlezWebUI.Models
         public DbSet<CompanyB2> CompanyB2s { get; set; }
         public DbSet<Article> Articles { get; set; }
         public DbSet<CompanyBuyer> CompanyBuyers { get; set; }
-        public DbSet<CompanySeller> CompanySeller { get; set; }
+        public DbSet<CompanySeller> CompanySellers { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Order> Orders { get; set; }
         //Gross domain
-        public DbSet<Alc> Alc { get; set; }
-        public DbSet<Bet> Bet { get; set; }
-        public DbSet<Company> Company { get; set; }
-        public DbSet<Enclosure> Enclosure { get; set; }
-        public DbSet<Head> Head { get; set; }
-        public DbSet<HeadRef> HeadRef { get; set; }
-        public DbSet<Line> Line { get; set; }
-        public DbSet<LineAlc> LineAlc { get; set; }
-        public DbSet<LinePri> LinePri { get; set; }
-        public DbSet<LineRef> LineRef { get; set; }
-        public DbSet<LineTax> LineTax { get; set; }
-        public DbSet<Sum> Sum { get; set; }
-        public DbSet<SumTax> SumTax { get; set; }
-        public DbSet<Tdt> Tdt { get; set; }
-        public DbSet<Tod> Tod { get; set; }
+        public DbSet<Alc> Alcs { get; set; }
+        public DbSet<Bet> Bets { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Enclosure> Enclosures { get; set; }
+        public DbSet<Head> Heads { get; set; }
+        public DbSet<HeadRef> HeadRefs { get; set; }
+        public DbSet<Line> Lines { get; set; }
+        public DbSet<LineAlc> LineAlcs { get; set; }
+        public DbSet<LinePri> LinePris { get; set; }
+        public DbSet<LineRef> LineRefs { get; set; }
+        public DbSet<LineTax> LineTaxes { get; set; }
+        public DbSet<Sum> Sums { get; set; }
+        public DbSet<SumTax> SumTaxes { get; set; }
+        public DbSet<Tdt> Tdts { get; set; }
+        public DbSet<Tod> Tods { get; set; }
     }
 
     public class CompanyB2

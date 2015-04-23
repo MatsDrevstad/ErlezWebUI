@@ -1,0 +1,50 @@
+﻿@model ErlezWebUI.Models.Tdt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tdt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtCarrierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtCarrierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

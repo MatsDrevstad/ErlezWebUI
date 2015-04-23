@@ -1,0 +1,224 @@
+﻿@model ErlezWebUI.Models.Company
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyQual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyQual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartyIdentification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartyIdentification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VatNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrgNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerUniqueIdentification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SellerUniqueIdentification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactTel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactTel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactFax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactFax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalStreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalStreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Box)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Box)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Iban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlusGiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlusGiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BankGiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankGiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

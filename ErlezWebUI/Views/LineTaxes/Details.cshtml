@@ -1,0 +1,66 @@
+﻿@model ErlezWebUI.Models.LineTax
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LineTax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LineTaxType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineTaxType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineTaxCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineTaxCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineTaxRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineTaxRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineTaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineTaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExemptFromTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExemptFromTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line.LineNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

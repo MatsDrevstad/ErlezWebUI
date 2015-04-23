@@ -1,0 +1,146 @@
+﻿@model ErlezWebUI.Models.Sum
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLines)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLines)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmountTaxCur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmountTaxCur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxableAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxableAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxableAmountTaxCur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxableAmountTaxCur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxableAmountExclExemption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxableAmountExclExemption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxableAmountExclExemptionTaxCur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxableAmountExclExemptionTaxCur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxAmountTaxCur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxAmountTaxCur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlcAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlcAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdjustmentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdjustmentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonTaxableAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonTaxableAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExemptionAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExemptionAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,98 @@
+﻿@model ErlezWebUI.Models.OrderCreate
+
+@{
+    ViewBag.Title = "CreateOrder";
+}
+
+<h2>CreateOrder</h2>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({ cache: false });
+    });
+    $(document).ready(function () {
+        $('select[name="SelectedValue"]').change(function () {
+            if ($("#SelectedValue").val()) {
+                var actionUrl = '@Url.Action("GetArticles", "Orders")';
+                $.getJSON(actionUrl, displayData);
+            }
+            else {
+                $('input[name="UnitPrice"]').val("");
+                $('input[name="UnitType"]').val("");
+            }
+        });
+    });
+
+    function displayData(response) {
+        if (response != null) {
+            var i = response.length;
+            while (i--) {
+                if (response[i].Id == $("#SelectedValue").val()) break;
+            }
+            $('input[name="UnitPrice"]').val(response[i].UnitPrice);
+            $('input[name="UnitType"]').val(response[i].UnitType);
+        }
+    };
+</script>
+
+@using (Html.BeginForm("CreateOrder", "Orders")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OrderCreate</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CompanyBuyerId)
+        @Html.HiddenFor(model => model.CompanySellerId)
+        @Html.HiddenFor(model => model.UnitPrice)
+        @Html.HiddenFor(model => model.UnitType)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Articles, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedValue, Model.Articles, "---Select Article---", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ArticleName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnitType, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.UnitType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

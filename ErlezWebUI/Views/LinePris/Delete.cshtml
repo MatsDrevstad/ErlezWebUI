@@ -1,0 +1,80 @@
+﻿@model ErlezWebUI.Models.LinePri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LinePri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceQualifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceQualifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceTypeQualifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceTypeQualifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinePri1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinePri1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinePriBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinePriBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LineUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LineUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Line.LineNumber)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

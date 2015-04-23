@@ -1,0 +1,178 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Companies</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyQual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartyIdentification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VatNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrgNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerUniqueIdentification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactTel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactFax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdditionalStreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Box)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlusGiro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankGiro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyQual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartyIdentification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VatNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrgNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellerUniqueIdentification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactTel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactFax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StreetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdditionalStreetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Box)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Iban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlusGiro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankGiro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

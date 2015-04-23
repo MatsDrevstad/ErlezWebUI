@@ -10,113 +10,112 @@ using ErlezWebUI.Models;
 
 namespace ErlezWebUI.Controllers
 {
-    public class CompanyController : Controller
+    public class LineTaxesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Company
+        // GET: LineTaxes
         public ActionResult Index()
         {
-            var company = db.CompanyB2s.ToList();
-            var companyViewModel = new List<CompanyViewModel>();
-            foreach (var item in company)
-            {
-                companyViewModel.Add(new CompanyViewModel { Id = item.Id, CompanyName = item.CompanyName });
-            }
-            return View(companyViewModel);
+            var lineTaxes = db.LineTaxes.Include(l => l.Line);
+            return View(lineTaxes.ToList());
         }
 
-        // GET: Company/Details/5
-        public ActionResult Details(int? id)
+        // GET: LineTaxes/Details/5
+        public ActionResult Details(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            LineTax lineTax = db.LineTaxes.Find(id);
+            if (lineTax == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(lineTax);
         }
 
-        // GET: Company/Create
+        // GET: LineTaxes/Create
         public ActionResult Create()
         {
+            ViewBag.LineId = new SelectList(db.Lines, "LineId", "LineNumber");
             return View();
         }
 
-        // POST: Company/Create
+        // POST: LineTaxes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CompanyName")] CompanyB2 company)
+        public ActionResult Create([Bind(Include = "LineId,LineTaxCount,LineTaxType,LineTaxCategory,LineTaxRate,LineTaxAmount,ExemptFromTax")] LineTax lineTax)
         {
             if (ModelState.IsValid)
             {
-                db.CompanyB2s.Add(company);
+                db.LineTaxes.Add(lineTax);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(company);
+            ViewBag.LineId = new SelectList(db.Lines, "LineId", "LineNumber", lineTax.LineId);
+            return View(lineTax);
         }
 
-        // GET: Company/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: LineTaxes/Edit/5
+        public ActionResult Edit(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            LineTax lineTax = db.LineTaxes.Find(id);
+            if (lineTax == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            ViewBag.LineId = new SelectList(db.Lines, "LineId", "LineNumber", lineTax.LineId);
+            return View(lineTax);
         }
 
-        // POST: Company/Edit/5
+        // POST: LineTaxes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CompanyName")] Company company)
+        public ActionResult Edit([Bind(Include = "LineId,LineTaxCount,LineTaxType,LineTaxCategory,LineTaxRate,LineTaxAmount,ExemptFromTax")] LineTax lineTax)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(company).State = EntityState.Modified;
+                db.Entry(lineTax).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(company);
+            ViewBag.LineId = new SelectList(db.Lines, "LineId", "LineNumber", lineTax.LineId);
+            return View(lineTax);
         }
 
-        // GET: Company/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: LineTaxes/Delete/5
+        public ActionResult Delete(long? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            if (company == null)
+            LineTax lineTax = db.LineTaxes.Find(id);
+            if (lineTax == null)
             {
                 return HttpNotFound();
             }
-            return View(company);
+            return View(lineTax);
         }
 
-        // POST: Company/Delete/5
+        // POST: LineTaxes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(long id)
         {
-            CompanyB2 company = db.CompanyB2s.Find(id);
-            db.CompanyB2s.Remove(company);
+            LineTax lineTax = db.LineTaxes.Find(id);
+            db.LineTaxes.Remove(lineTax);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

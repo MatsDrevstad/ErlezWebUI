@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ErlezWebUI.Models.SumTax>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>SumTaxes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumTaxType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumTaxCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumTaxRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumTaxableAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SumTaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCurrencyTaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumTaxType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumTaxCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumTaxRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumTaxableAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumTaxAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxCurrencyTaxAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

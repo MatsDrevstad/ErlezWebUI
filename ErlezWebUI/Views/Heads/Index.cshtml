@@ -1,0 +1,202 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Head>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Heads</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IAID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OutputType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealDelDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RealDelShip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorizonStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorizonEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeriodFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeriodTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreditReason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GUID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ErpVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorporateGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Erp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bet.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum.TotalQuantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IAID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OutputType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealDelDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RealDelShip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorizonStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorizonEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeriodFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeriodTo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreditReason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timestamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ErpVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isTest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorporateGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Erp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Version)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bet.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum.TotalQuantity)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.PostId })
+        </td>
+    </tr>
+}
+
+</table>

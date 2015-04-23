@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ErlezWebUI.Models.LineTax>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LineTaxes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LineTaxType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineTaxCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineTaxRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LineTaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExemptFromTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line.LineNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineTaxType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineTaxCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineTaxRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LineTaxAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExemptFromTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Line.LineNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

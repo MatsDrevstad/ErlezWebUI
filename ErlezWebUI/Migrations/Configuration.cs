@@ -13,6 +13,7 @@ namespace ErlezWebUI.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ErlezWebUI.Models.ApplicationDbContext context)

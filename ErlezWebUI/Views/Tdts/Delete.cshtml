@@ -1,0 +1,56 @@
+﻿@model ErlezWebUI.Models.Tdt
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Tdt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TdtCarrierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TdtCarrierName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

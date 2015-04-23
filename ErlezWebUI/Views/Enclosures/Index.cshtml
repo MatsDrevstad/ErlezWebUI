@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ErlezWebUI.Models.Enclosure>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Enclosures</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileCreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnclosedDataFormat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnclosedData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MediaType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileCreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnclosedDataFormat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnclosedData)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Head.IAID)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

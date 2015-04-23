@@ -1,0 +1,98 @@
+﻿@model ErlezWebUI.Models.Bet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvCurrency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvCurrency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxCurrency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxCurrency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxCurrencyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxCurrencyRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxCurrencyRateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxCurrencyRateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExemptFromTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExemptFromTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PenaltySurchargePercent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PenaltySurchargePercent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentInstruction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentInstruction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Head.IAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Head.IAID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
