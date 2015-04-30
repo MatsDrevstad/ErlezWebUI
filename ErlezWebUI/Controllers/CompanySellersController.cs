@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ErlezWebUI.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ErlezWebUI.Controllers
 {
@@ -18,7 +19,8 @@ namespace ErlezWebUI.Controllers
         // GET: CompanySellers
         public ActionResult Index()
         {
-            return View(db.CompanySellers.ToList());
+            var user = User.Identity.GetUserId();
+            return View(db.CompanySellers.Where(x => x.ApplicationUser_Id == user).ToList());
         }
 
         // GET: CompanySellers/Details/5
@@ -51,7 +53,13 @@ namespace ErlezWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.CompanySellers.Add(companySeller);
+                db.CompanySellers.Add(new CompanySeller
+                {
+                    Name = companySeller.Name,
+                    OrgNo = companySeller.OrgNo,
+                    City = companySeller.City,
+                    ApplicationUser_Id = User.Identity.GetUserId().ToString(),
+                });
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -83,6 +91,7 @@ namespace ErlezWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                companySeller.ApplicationUser_Id = User.Identity.GetUserId().ToString();
                 db.Entry(companySeller).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

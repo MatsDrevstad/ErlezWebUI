@@ -10,7 +10,7 @@ using ErlezWebUI.Models;
 
 namespace ErlezWebUI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "CanEditUser")]
     public class CompaniesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

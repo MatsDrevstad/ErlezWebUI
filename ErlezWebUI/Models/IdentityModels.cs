@@ -111,6 +111,7 @@ namespace ErlezWebUI.Models
         public string Name { get; set; }
         public string OrgNo { get; set; }
         public string City { get; set; }
+        public string ApplicationUser_Id { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }
@@ -127,6 +128,7 @@ namespace ErlezWebUI.Models
         public string Name { get; set; }
         public string OrgNo { get; set; }
         public string City { get; set; }
+        public string ApplicationUser_Id { get; set; }
 
         public virtual ICollection<Article> Articles { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
@@ -153,6 +155,7 @@ namespace ErlezWebUI.Models
         public Nullable<System.DateTime> DueDate { get; set; }
         public Nullable<int> InvoiceNo { get; set; }
         public string Status { get; set; }
+        public string ApplicationUser_Id { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }
@@ -170,6 +173,7 @@ namespace ErlezWebUI.Models
         public Nullable<int> CompanyBuyerId { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public string UnitType { get; set; }
+        public string ApplicationUser_Id { get; set; }
 
         public virtual CompanyBuyer CompanyBuyer { get; set; }
         public virtual CompanySeller CompanySeller { get; set; }
