@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ErlezWebUI.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ErlezWebUI.Controllers
 {
@@ -19,7 +21,8 @@ namespace ErlezWebUI.Controllers
         // GET: Orders
         public ActionResult Index(int page = 1)
         {
-            var orders = db.Orders.Where(o => o.InvoiceId == null)
+            var user = User.Identity.GetUserId();
+            var orders = db.Orders.Where(u => u.ApplicationUser_Id == user).Where(o => o.InvoiceId == null)
                 .Include(o => o.CompanyBuyer).Include(o => o.CompanySeller).Include(o => o.Invoice);
             OrdersIndexViewModel model = new OrdersIndexViewModel
             {
@@ -94,10 +97,11 @@ namespace ErlezWebUI.Controllers
             //hämta model för den uppdaterade listan
             var orders = db.Orders.Where(o => o.InvoiceId == null)
                 .Include(o => o.CompanyBuyer).Include(o => o.CompanySeller).Include(o => o.Invoice);
+            var user = User.Identity.GetUserId();
 
             OrdersIndexViewModel model = new OrdersIndexViewModel
             {
-                Orders = orders.OrderBy(o => o.Id)
+                Orders = orders.Where(u => u.ApplicationUser_Id == user).OrderBy(o => o.Id)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
                 PagingInfo = new PagingInfo
@@ -149,6 +153,7 @@ namespace ErlezWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = User.Identity.GetUserId(); 
                 var order = new Order() 
                 {
                     OrderType = "280",
@@ -160,6 +165,7 @@ namespace ErlezWebUI.Controllers
                     Gtin = Guid.NewGuid(),
                     UnitPrice = Convert.ToDecimal(vm.UnitPrice.Replace('.',',')),
                     UnitType = vm.UnitType,
+                    ApplicationUser_Id = User.Identity.GetUserId().ToString(),
                 };
                 db.Orders.Add(order);
                 db.SaveChanges();
