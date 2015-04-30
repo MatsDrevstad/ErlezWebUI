@@ -24,7 +24,7 @@ namespace ErlezWebUI.Models
 
         public int CompanyId { get; set; }
         public string RegisterCompanyName { get; set; }
-        public string CompanyName { get; set; }       
+        public string CompanyName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -95,6 +95,7 @@ namespace ErlezWebUI.Models
         public Nullable<int> CompanySellerId { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public string UnitType { get; set; }
+        public string ApplicationUser_Id { get; set; }
 
         public virtual CompanySeller CompanySeller { get; set; }
     }

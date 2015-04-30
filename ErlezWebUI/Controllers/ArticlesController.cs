@@ -7,28 +7,45 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ErlezWebUI.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ErlezWebUI.Controllers
 {
+    [Authorize]
     public class ArticlesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private int PageSize = 6;
 
         // GET: Articles
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var articles = db.Articles.Include(a => a.CompanySeller);
-            return View(articles.ToList());
+            var user = User.Identity.GetUserId(); 
+            var articles = db.Articles.Where(u => u.ApplicationUser_Id == user).Include(a => a.CompanySeller);
+            ArticleIndexViewModel model = new ArticleIndexViewModel
+            {
+                Articles = articles.OrderBy(o => o.Id)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = articles.Count()
+                }
+            };
+            return View(model);
         }
 
-        // GET: Articles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Article article = db.Articles.Find(id);
+            var user = User.Identity.GetUserId();
+            Article article = db.Articles.Where(u => u.ApplicationUser_Id == user).FirstOrDefault(a => a.Id == id);
             if (article == null)
             {
                 return HttpNotFound();
@@ -49,13 +66,14 @@ namespace ErlezWebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Articles.Add(new Article 
+                db.Articles.Add(new Article
                 {
                     ArticleName = model.ArticleName,
                     CompanySellerId = model.CompanySellerId,
                     UnitPrice = Convert.ToDecimal(model.UnitPrice),
                     UnitType = model.UnitType,
                     Gtin = Guid.NewGuid(),
+                    ApplicationUser_Id = User.Identity.GetUserId().ToString(),
                 });
                 db.SaveChanges();
                 return RedirectToAction("Index");

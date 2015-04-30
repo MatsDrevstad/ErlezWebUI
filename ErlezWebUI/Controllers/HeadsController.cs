@@ -10,6 +10,7 @@ using ErlezWebUI.Models;
 
 namespace ErlezWebUI.Controllers
 {
+    [Authorize]
     public class HeadsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

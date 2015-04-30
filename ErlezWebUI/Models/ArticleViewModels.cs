@@ -6,6 +6,12 @@ using System.Web;
 
 namespace ErlezWebUI.Models
 {
+    public class ArticleIndexViewModel
+    {
+        public IEnumerable<Article> Articles { get; set; }
+        public PagingInfo PagingInfo { get; set; }
+    }
+
     public class ArticleCreate
     {
         public string ArticleName { get; set; }

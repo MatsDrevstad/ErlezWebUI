@@ -11,6 +11,7 @@ using System.Collections;
 
 namespace ErlezWebUI.Controllers
 {
+    [Authorize]
     public class InvoicesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -50,51 +50,51 @@ namespace ErlezWebUI.Migrations
                 userManager.AddToRole(user.Id, "CanEditUser");
             }
 
-            if (!context.Users.Any(u => u.Email == "helena.robinson@_ica.se"))
+            if (!context.Users.Any(u => u.Email == "helena.robinson@ica.se"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "ICA NÄRA Örebro", Email = "helena.robinson@_ica.se", UserName = "helena.robinson@_ica.se" };
+                var user = new ApplicationUser { RegisterCompanyName = "ICA NÄRA Örebro", Email = "helena.robinson@ica.se", UserName = "helena.robinson@ica.se" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "laura.andrews@_willys.se"))
+            if (!context.Users.Any(u => u.Email == "laura.andrews@willys.se"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "Willy's strand", Email = "laura.andrews@_willys.se", UserName = "laura.andrews@_willys.se" };
+                var user = new ApplicationUser { RegisterCompanyName = "Willy's strand", Email = "laura.andrews@willys.se", UserName = "laura.andrews@willys.se" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "maria.andersson@_ica.se"))
+            if (!context.Users.Any(u => u.Email == "maria.andersson@ica.se"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "ICA kvantum", Email = "maria.andersson@_ica.se", UserName = "maria.andersson@_ica.se" };
+                var user = new ApplicationUser { RegisterCompanyName = "ICA kvantum", Email = "maria.andersson@ica.se", UserName = "maria.andersson@ica.se" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "susan.grant@_volvocars.com"))
+            if (!context.Users.Any(u => u.Email == "susan.grant@volvocars.com"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "Torslanda", Email = "susan.grant@_volvocars.com", UserName = "susan.grant@_volvocars.com" };
+                var user = new ApplicationUser { RegisterCompanyName = "Torslanda", Email = "susan.grant@volvocars.com", UserName = "susan.grant@volvocars.com" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "edgar.stevens@_willys.se"))
+            if (!context.Users.Any(u => u.Email == "edgar.stevens@willys.se"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "Willis", Email = "edgar.stevens@_willys.se", UserName = "edgar.stevens@_willys.se" };
+                var user = new ApplicationUser { RegisterCompanyName = "Willis", Email = "edgar.stevens@willys.se", UserName = "edgar.stevens@willys.se" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "jason.hall@_ica.se"))
+            if (!context.Users.Any(u => u.Email == "jason.hall@ica.se"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "Fokus (Ica)", Email = "jason.hall@_ica.se", UserName = "jason.hall@_ica.se" };
+                var user = new ApplicationUser { RegisterCompanyName = "Fokus (Ica)", Email = "jason.hall@ica.se", UserName = "jason.hall@ica.se" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "bertil.clark@_volvocars.com"))
+            if (!context.Users.Any(u => u.Email == "bertil.clark@volvocars.com"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "Pinifarina", Email = "bertil.clark@_volvocars.com", UserName = "bertil.clark@_volvocars.com" };
+                var user = new ApplicationUser { RegisterCompanyName = "Pinifarina", Email = "bertil.clark@volvocars.com", UserName = "bertil.clark@volvocars.com" };
                 userManager.Create(user, "qqqq1!Q");
             }
 
-            if (!context.Users.Any(u => u.Email == "sandra.lewis@_volvocars.com"))
+            if (!context.Users.Any(u => u.Email == "sandra.lewis@volvocars.com"))
             {
-                var user = new ApplicationUser { RegisterCompanyName = "tuve", Email = "sandra.lewis@_volvocars.com", UserName = "sandra.lewis@_volvocars.com" };
+                var user = new ApplicationUser { RegisterCompanyName = "tuve", Email = "sandra.lewis@volvocars.com", UserName = "sandra.lewis@volvocars.com" };
                 userManager.Create(user, "qqqq1!Q");
             }
         }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ErlezWebUI.Models.Article>
+﻿@model ErlezWebUI.Models.ArticleIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -13,39 +13,33 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ArticleName)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gtin)
+            UnitPrice
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+            UnitType
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanySeller.Name)
+            CompanySeller
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Articles) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ArticleName)
+            @item.ArticleName
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gtin)
+            @item.UnitPrice
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
+            @item.UnitType
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanySeller.Name)
+            @item.CompanySeller.Name
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id=item.Id })
@@ -54,3 +48,7 @@
 }
 
 </table>
+
+<div class="col-md-12 text-center">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { Page = x }))
+</div>

@@ -10,10 +10,11 @@ using ErlezWebUI.Models;
 
 namespace ErlezWebUI.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public int PageSize = 6;
+        private int PageSize = 6;
 
         // GET: Orders
         public ActionResult Index(int page = 1)
